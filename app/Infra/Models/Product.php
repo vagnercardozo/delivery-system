@@ -11,6 +11,7 @@ use Infra\Models\Restaurant;
 class Product extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
         'restaurant_id',
         'category_id',

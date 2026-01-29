@@ -2,13 +2,13 @@
 
 namespace Main\Http\Controllers\Settings;
 
-use Main\Http\Requests\Settings\TwoFactorAuthenticationRequest;
-use Main\Http\Controllers\Controller;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Inertia\Inertia;
 use Inertia\Response;
 use Laravel\Fortify\Features;
+use Main\Http\Controllers\Controller;
+use Main\Http\Requests\Settings\TwoFactorAuthenticationRequest;
 
 class TwoFactorAuthenticationController extends Controller implements HasMiddleware
 {

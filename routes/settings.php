@@ -1,10 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Inertia\Inertia;
 use Main\Http\Controllers\Settings\PasswordController;
 use Main\Http\Controllers\Settings\ProfileController;
 use Main\Http\Controllers\Settings\TwoFactorAuthenticationController;
-use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', '/settings/profile');

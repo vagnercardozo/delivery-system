@@ -32,6 +32,8 @@
             "App\\": "app/",
             "Main\\": "app/Main/",
             "Infra\\": "app/Infra/",
+            "Domain\\": "app/Domain/",
+            "Application\\": "app/Application/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
         }

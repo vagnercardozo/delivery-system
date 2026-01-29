@@ -13,9 +13,9 @@ return new class extends Migration
             $table->foreignId('restaurant_id')->constrained()->cascadeOnDelete();
             $table->foreignId('customer_id')->constrained()->cascadeOnDelete();
             $table->string('external_id')->nullable();
-            $table->enum('status', ['pending','confirmed','preparing','delivered','canceled'])->default('pending');
+            $table->enum('status', ['pending', 'confirmed', 'preparing', 'delivered', 'canceled'])->default('pending');
             $table->decimal('total_amount', 10, 2)->default(0);
-            $table->enum('payment_method', ['credit_card','pix','cash'])->nullable();
+            $table->enum('payment_method', ['credit_card', 'pix', 'cash'])->nullable();
             $table->decimal('delivery_fee', 10)->default(0);
             $table->text('notes')->nullable();
             $table->timestamps();

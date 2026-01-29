@@ -2,9 +2,9 @@
 
 namespace Main\Http\Requests\Settings;
 
-use Main\Concerns\PasswordValidationRules;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Main\Concerns\PasswordValidationRules;
 
 class ProfileDeleteRequest extends FormRequest
 {
