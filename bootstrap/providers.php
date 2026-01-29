@@ -1,6 +1,6 @@
 <?php
 
 return [
-    App\Providers\AppServiceProvider::class,
-    App\Providers\FortifyServiceProvider::class,
+    \Main\Providers\AppServiceProvider::class,
+    \Main\Providers\FortifyServiceProvider::class,
 ];
