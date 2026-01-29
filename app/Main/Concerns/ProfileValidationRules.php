@@ -1,8 +1,6 @@
 <?php
 
 namespace Main\Concerns;
-
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Validation\Rule;
 use Main\Models\User;
 
