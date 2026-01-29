@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\User;
+use Main\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 use Laravel\Fortify\Features;
 

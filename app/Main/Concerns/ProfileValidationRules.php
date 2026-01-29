@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Concerns;
+namespace Main\Concerns;
 
-use App\Models\User;
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Validation\Rule;
+use Main\Models\User;
 
 trait ProfileValidationRules
 {

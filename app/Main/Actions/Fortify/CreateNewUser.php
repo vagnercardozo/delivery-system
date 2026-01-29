@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Actions\Fortify;
+namespace Main\Actions\Fortify;
 
-use App\Concerns\PasswordValidationRules;
-use App\Concerns\ProfileValidationRules;
-use App\Models\User;
+use Main\Concerns\PasswordValidationRules;
+use Main\Concerns\ProfileValidationRules;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Main\Models\User;
 
 class CreateNewUser implements CreatesNewUsers
 {
-    use PasswordValidationRules, ProfileValidationRules;
+    use PasswordValidationRules;
+    use ProfileValidationRules;
 
     /**
      * Validate and create a newly registered user.
