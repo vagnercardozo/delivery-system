@@ -3,10 +3,12 @@
 namespace Main\Providers;
 
 use Carbon\CarbonImmutable;
+use Domain\Repositories\RestaurantRepository as InterfaceRestaurantRepository;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
+use Infra\Repositories\RestaurantRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,7 +17,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            RestaurantRepository::class,
+            InterfaceRestaurantRepository::class
+        );
     }
 
     /**
