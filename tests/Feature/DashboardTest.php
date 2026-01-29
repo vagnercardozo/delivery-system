@@ -1,6 +1,6 @@
 <?php
 
-use Main\Models\User;
+use Infra\Models\User;
 
 test('guests are redirected to the login page', function () {
     $response = $this->get(route('dashboard'));

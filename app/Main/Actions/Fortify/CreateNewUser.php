@@ -7,7 +7,7 @@ use Main\Concerns\PasswordValidationRules;
 use Main\Concerns\ProfileValidationRules;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
-use Main\Models\User;
+use Infra\Models\User;
 
 class CreateNewUser implements CreatesNewUsers
 {

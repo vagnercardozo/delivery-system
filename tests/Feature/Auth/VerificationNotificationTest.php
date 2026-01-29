@@ -1,6 +1,6 @@
 <?php
 
-use Main\Models\User;
+use Infra\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
 

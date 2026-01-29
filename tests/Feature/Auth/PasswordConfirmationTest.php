@@ -1,6 +1,6 @@
 <?php
 
-use Main\Models\User;
+use Infra\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
 
 test('confirm password screen can be rendered', function () {
