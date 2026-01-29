@@ -1,0 +1,40 @@
+<?php
+
+namespace Infra\Models;
+
+use App\Infra\Models\Category;
+use App\Infra\Models\Order;
+use App\Infra\Models\Product;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+class Restaurant extends Model
+{
+    protected $fillable = [
+        'name',
+        'slug',
+        'status',
+        'opening_time',
+        'closing_time',
+    ];
+
+    protected $casts = [
+        'opening_time' => 'datetime:H:i',
+        'closing_time' => 'datetime:H:i',
+    ];
+
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function products(): HasMany
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function orders(): HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+}

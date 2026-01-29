@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Infra\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Infra\Models\Restaurant;
+
+class Product extends Model
+{
+    protected $fillable = [
+        'restaurant_id',
+        'category_id',
+        'name',
+        'slug',
+        'description',
+        'price',
+        'is_available',
+        'image_url',
+    ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
+        'is_available' => 'boolean',
+    ];
+
+    public function restaurant(): BelongsTo
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function orderItems(): HasMany
+    {
+        return $this->hasMany(OrderItem::class);
+    }
+}
