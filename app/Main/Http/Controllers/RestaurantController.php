@@ -13,6 +13,6 @@ class RestaurantController extends Controller
     {
         $restaurant = $useCase->execute($request->validated());
 
-        return response()->json($restaurant, 201);
+        return response()->json($restaurant->toArray(), 201);
     }
 }
