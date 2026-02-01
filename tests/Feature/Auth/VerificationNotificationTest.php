@@ -1,8 +1,8 @@
 <?php
 
-use Infra\Models\User;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Notification;
+use Infra\Models\User;
 
 test('sends verification notification', function () {
     Notification::fake();

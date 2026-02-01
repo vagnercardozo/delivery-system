@@ -1,7 +1,7 @@
 <?php
 
-use Infra\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
+use Infra\Models\User;
 use Laravel\Fortify\Features;
 
 test('two factor settings page can be rendered', function () {

@@ -1,7 +1,7 @@
 <?php
 
-use Infra\Models\User;
 use Inertia\Testing\AssertableInertia as Assert;
+use Infra\Models\User;
 
 test('confirm password screen can be rendered', function () {
     $user = User::factory()->create();

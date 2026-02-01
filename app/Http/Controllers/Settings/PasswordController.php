@@ -2,11 +2,11 @@
 
 namespace Main\Http\Controllers\Settings;
 
-use Main\Http\Controllers\Controller;
-use Main\Http\Requests\Settings\PasswordUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Inertia\Inertia;
 use Inertia\Response;
+use Main\Http\Controllers\Controller;
+use Main\Http\Requests\Settings\PasswordUpdateRequest;
 
 class PasswordController extends Controller
 {

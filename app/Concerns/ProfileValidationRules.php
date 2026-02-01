@@ -1,6 +1,7 @@
 <?php
 
 namespace Main\Concerns;
+
 use Illuminate\Validation\Rule;
 use Infra\Models\User;
 
