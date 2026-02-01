@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\RateLimiter;
-use Infra\Models\User;
+use App\Models\User;
 use Laravel\Fortify\Features;
 
 test('login screen can be rendered', function () {

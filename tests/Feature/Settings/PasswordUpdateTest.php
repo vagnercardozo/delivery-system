@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Hash;
-use Infra\Models\User;
+use App\Models\User;
 
 test('password update page is displayed', function () {
     $user = User::factory()->create();

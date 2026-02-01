@@ -3,7 +3,7 @@
 namespace Main\Concerns;
 
 use Illuminate\Validation\Rule;
-use Infra\Models\User;
+use App\Models\User;
 
 trait ProfileValidationRules
 {

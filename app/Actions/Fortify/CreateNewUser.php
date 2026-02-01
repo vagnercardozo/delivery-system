@@ -4,7 +4,7 @@ namespace Main\Actions\Fortify;
 
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
-use Infra\Models\User;
+use App\Models\User;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
 use Main\Concerns\PasswordValidationRules;
 use Main\Concerns\ProfileValidationRules;
