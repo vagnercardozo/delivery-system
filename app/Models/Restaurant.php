@@ -1,10 +1,7 @@
 <?php
 
-namespace Infra\Models;
+namespace App\Models;
 
-use App\Infra\Models\Category;
-use App\Infra\Models\Order;
-use App\Infra\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;

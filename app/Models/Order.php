@@ -1,30 +1,29 @@
 <?php
 
-namespace App\Infra\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Infra\Models\Restaurant;
 
-class Product extends Model
+class Order extends Model
 {
     use SoftDeletes;
     protected $fillable = [
         'restaurant_id',
-        'category_id',
-        'name',
-        'slug',
-        'description',
-        'price',
-        'is_available',
-        'image_url',
+        'customer_id',
+        'external_id',
+        'status',
+        'total_amount',
+        'payment_method',
+        'delivery_fee',
+        'notes',
     ];
 
     protected $casts = [
-        'price' => 'decimal:2',
-        'is_available' => 'boolean',
+        'total_amount' => 'decimal:2',
+        'delivery_fee' => 'decimal:2',
     ];
 
     public function restaurant(): BelongsTo
@@ -32,12 +31,12 @@ class Product extends Model
         return $this->belongsTo(Restaurant::class);
     }
 
-    public function category(): BelongsTo
+    public function customer(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Customer::class);
     }
 
-    public function orderItems(): HasMany
+    public function items(): HasMany
     {
         return $this->hasMany(OrderItem::class);
     }
