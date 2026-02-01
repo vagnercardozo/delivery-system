@@ -6,17 +6,18 @@ use App\Http\Requests\Restaurant\StoreRestaurantRequest;
 use App\Http\Requests\Restaurant\UpdateRestaurantRequest;
 use App\Models\Restaurant;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class RestaurantController extends Controller
 {
-    public function index()
+    public function index(): LengthAwarePaginator
     {
-        return Restaurant::paginate();
+        return Restaurant::query()->paginate();
     }
 
     public function store(StoreRestaurantRequest $request): JsonResponse
     {
-        $restaurant = Restaurant::create($request->validated());
+        $restaurant = Restaurant::query()->create($request->validated());
 
         return response()->json($restaurant, 201);
     }
