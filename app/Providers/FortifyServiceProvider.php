@@ -1,6 +1,6 @@
 <?php
 
-namespace Main\Providers;
+namespace App\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -10,8 +10,8 @@ use Illuminate\Support\Str;
 use Inertia\Inertia;
 use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
-use Main\Actions\Fortify\CreateNewUser;
-use Main\Actions\Fortify\ResetUserPassword;
+use App\Actions\Fortify\CreateNewUser;
+use App\Actions\Fortify\ResetUserPassword;
 
 class FortifyServiceProvider extends ServiceProvider
 {

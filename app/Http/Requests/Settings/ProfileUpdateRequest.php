@@ -4,7 +4,7 @@ namespace App\Http\Requests\Settings;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
-use Main\Concerns\ProfileValidationRules;
+use App\Concerns\ProfileValidationRules;
 
 class ProfileUpdateRequest extends FormRequest
 {
