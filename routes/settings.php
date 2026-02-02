@@ -1,8 +1,8 @@
 <?php
 
-use Main\Http\Controllers\Settings\PasswordController;
-use Main\Http\Controllers\Settings\ProfileController;
-use Main\Http\Controllers\Settings\TwoFactorAuthenticationController;
+use App\Http\Controllers\Settings\PasswordController;
+use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\Settings\TwoFactorAuthenticationController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
