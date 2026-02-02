@@ -10,6 +10,10 @@ class Restaurant extends Model
 {
     use SoftDeletes;
 
+    public int $id;
+
+    public string $name;
+
     protected $fillable = [
         'name',
         'slug',
