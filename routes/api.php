@@ -3,8 +3,34 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
-Route::apiResource('restaurants', RestaurantController::class);
-Route::apiResource('categories', CategoryController::class);
-Route::apiResource('products', ProductController::class);
+Route::post('/login', function (Request $request) {
+    $request->validate([
+        'email' => ['required', 'email'],
+        'password' => ['required'],
+    ]);
+    $user = User::query()->where('email', $request->email)->first();
+    if (!$user || !Hash::check($request->password, $user->password)) {
+        return response()->json(['message' => 'Credenciais inválidas'], 401);
+    }
+    $token = $user->createToken('api-token')->plainTextToken;
+
+    return response()->json([
+        'token' => $token,
+    ]);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/restaurants', [RestaurantController::class, 'index']);
+    Route::post('/restaurants', [RestaurantController::class, 'store']);
+    Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->middleware('can:view,restaurant');
+    Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->middleware('can:update,restaurant');
+    Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->middleware('can:delete,restaurant');
+
+    Route::apiResource('categories', CategoryController::class);
+    Route::apiResource('products', ProductController::class);
+});
