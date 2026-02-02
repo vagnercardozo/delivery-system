@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property string $name
+ * @property int $id
+ * @property string $slug
+ */
 class Restaurant extends Model
 {
     use SoftDeletes;
 
-    public int $id;
-
-    public string $name;
 
     protected $fillable = [
         'name',
