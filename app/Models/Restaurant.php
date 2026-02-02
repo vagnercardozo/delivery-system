@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Concerns\HasSlug;
+use App\Policies\RestaurantPolicy;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -12,7 +14,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $name
  * @property int $id
  * @property string $slug
+ * @property int $user_id
  */
+#[UsePolicy(RestaurantPolicy::class)]
 class Restaurant extends Model
 {
     use HasSlug,SoftDeletes;
