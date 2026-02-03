@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property Restaurant $restaurant
  * @property int $id
+ * @property string $status
  */
 #[UsePolicy(OrderPolicy::class)]
 class Order extends Model

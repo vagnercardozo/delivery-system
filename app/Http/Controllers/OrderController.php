@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Order\ChangeOrderStatus;
 use App\Actions\Order\CreateOrder;
+use App\Http\Requests\Order\ChangeOrderStatusRequest;
 use App\Http\Requests\Order\StoreOrderRequest;
 use App\Http\Requests\Restaurant\UpdateRestaurantRequest;
 use App\Models\Order;
@@ -36,9 +38,11 @@ class OrderController extends Controller
         return response()->json($order);
     }
 
-    public function changeStatus(Order $order, Request $request): JsonResponse
+    public function changeStatus(Order $order, ChangeOrderStatusRequest $request, ChangeOrderStatus $action): JsonResponse
     {
-        return response()->json(['message' => 'TODO - mudar status']);
+        $order = $action->handle($order, $request->status);
+
+        return response()->json($order);
     }
 
     public function destroy(Order $order): JsonResponse
