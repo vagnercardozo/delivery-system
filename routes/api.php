@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -24,21 +26,36 @@ Route::post('/login', function (Request $request) {
 });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/restaurants', [RestaurantController::class, 'index']);
-    Route::post('/restaurants', [RestaurantController::class, 'store']);
-    Route::get('/restaurants/{restaurant}', [RestaurantController::class, 'show'])->middleware('can:view,restaurant');
-    Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->middleware('can:update,restaurant');
-    Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->middleware('can:delete,restaurant');
+    Route::prefix('restaurants')->group(function () {
+        Route::get('/', [RestaurantController::class, 'index']);
+        Route::post('/', [RestaurantController::class, 'store']);
+        Route::get('/{restaurant}', [RestaurantController::class, 'show'])->middleware('can:view,restaurant');
+        Route::put('/{restaurant}', [RestaurantController::class, 'update'])->middleware('can:update,restaurant');
+        Route::delete('/{restaurant}', [RestaurantController::class, 'destroy'])->middleware('can:delete,restaurant');
+    });
 
-    Route::get('/categories', [CategoryController::class, 'index']);
-    Route::post('/categories', [CategoryController::class, 'store']);
-    Route::get('/categories/{category}', [CategoryController::class, 'show'])->middleware('can:view,category');
-    Route::put('/categories/{category}', [CategoryController::class, 'update'])->middleware('can:update,category');
-    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->middleware('can:delete,category');
+    Route::prefix('categories')->group(function () {
+        Route::get('/', [CategoryController::class, 'index']);
+        Route::post('/', [CategoryController::class, 'store']);
+        Route::get('/{category}', [CategoryController::class, 'show'])->middleware('can:view,category');
+        Route::put('/{category}', [CategoryController::class, 'update'])->middleware('can:update,category');
+        Route::delete('/{category}', [CategoryController::class, 'destroy'])->middleware('can:delete,category');
+    });
 
-    Route::get('/products', [CategoryController::class, 'index']);
-    Route::post('/products', [CategoryController::class, 'store']);
-    Route::get('/products/{product}', [CategoryController::class, 'show'])->middleware('can:view,product');
-    Route::put('/products/{product}', [CategoryController::class, 'update'])->middleware('can:update,product');
-    Route::delete('/products/{product}', [CategoryController::class, 'destroy'])->middleware('can:delete,product');
+    Route::prefix('products')->group(function () {
+        Route::get('/', [ProductController::class, 'index']);
+        Route::post('/', [ProductController::class, 'store']);
+        Route::get('/{product}', [ProductController::class, 'show'])->middleware('can:view,product');
+        Route::put('/{product}', [ProductController::class, 'update'])->middleware('can:update,product');
+        Route::delete('/{product}', [ProductController::class, 'destroy'])->middleware('can:delete,product');
+    });
+
+    Route::prefix('orders')->group(function () {
+        Route::post('/', [OrderController::class, 'store']);
+        Route::get('/', [OrderController::class, 'index']);
+        Route::get('/{order}', [OrderController::class, 'show'])->middleware('can:view,order');
+        Route::put('/{order}', [OrderController::class, 'update'])->middleware('can:update,order');
+        Route::patch('/{order}/status', [OrderController::class, 'changeStatus'])->middleware('can:update,order');
+        Route::delete('/{order}', [OrderController::class, 'destroy'])->middleware('can:delete,product');
+    });
 });
