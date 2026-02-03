@@ -13,7 +13,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @property Restaurant $restaurant
  */
-
 #[UsePolicy(ProductPolicy::class)]
 class Product extends Model
 {

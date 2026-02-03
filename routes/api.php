@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
 use App\Models\User;
 use Illuminate\Http\Request;
