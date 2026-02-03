@@ -54,8 +54,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/', [OrderController::class, 'store']);
         Route::get('/', [OrderController::class, 'index']);
         Route::get('/{order}', [OrderController::class, 'show'])->middleware('can:view,order');
-        Route::put('/{order}', [OrderController::class, 'update'])->middleware('can:update,order');
         Route::patch('/{order}/status', [OrderController::class, 'changeStatus'])->middleware('can:update,order');
-        Route::delete('/{order}', [OrderController::class, 'destroy'])->middleware('can:delete,product');
+        Route::delete('/{order}', [OrderController::class, 'destroy'])->middleware('can:delete,order');
     });
 });
