@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Actions\Order\ChangeOrderStatus;
 use App\Actions\Order\CreateOrder;
+use App\Enums\OrderStatus;
 use App\Http\Requests\Order\ChangeOrderStatusRequest;
 use App\Http\Requests\Order\StoreOrderRequest;
 use App\Http\Requests\Restaurant\UpdateRestaurantRequest;
@@ -40,7 +41,7 @@ class OrderController extends Controller
 
     public function changeStatus(Order $order, ChangeOrderStatusRequest $request, ChangeOrderStatus $action): JsonResponse
     {
-        $order = $action->handle($order, $request->status);
+        $order = $action->handle($order, OrderStatus::from($request->status));
 
         return response()->json($order);
     }
