@@ -10,7 +10,6 @@ use App\Http\Requests\Order\StoreOrderRequest;
 use App\Http\Requests\Restaurant\UpdateRestaurantRequest;
 use App\Models\Order;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class OrderController extends Controller

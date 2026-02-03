@@ -22,5 +22,4 @@ class ChangeOrderStatusRequest extends FormRequest
             'status' => ['required', new Enum(OrderStatus::class)],
         ];
     }
-
 }
