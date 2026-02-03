@@ -31,6 +31,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::put('/restaurants/{restaurant}', [RestaurantController::class, 'update'])->middleware('can:update,restaurant');
     Route::delete('/restaurants/{restaurant}', [RestaurantController::class, 'destroy'])->middleware('can:delete,restaurant');
 
-    Route::apiResource('categories', CategoryController::class);
-    Route::apiResource('products', ProductController::class);
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::get('/categories/{category}', [CategoryController::class, 'show'])->middleware('can:view,category');
+    Route::put('/categories/{category}', [CategoryController::class, 'update'])->middleware('can:update,category');
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->middleware('can:delete,category');
+
+    Route::get('/products', [CategoryController::class, 'index']);
+    Route::post('/products', [CategoryController::class, 'store']);
+    Route::get('/products/{product}', [CategoryController::class, 'show'])->middleware('can:view,product');
+    Route::put('/products/{product}', [CategoryController::class, 'update'])->middleware('can:update,product');
+    Route::delete('/products/{product}', [CategoryController::class, 'destroy'])->middleware('can:delete,product');
 });
