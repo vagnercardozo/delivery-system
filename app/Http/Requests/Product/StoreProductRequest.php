@@ -15,12 +15,12 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'slug' => ['required', 'string', 'unique:products,slug'],
             'description' => ['required', 'string'],
             'price' => ['required', 'decimal:2'],
             'is_available' => ['sometimes', 'boolean'],
             'image_url' => ['sometimes', 'string'],
-            'category_id' => ['sometimes', 'integer', 'exists:categories,id'],
+            'category_id' => ['required', 'integer', 'exists:categories,id'],
+            'restaurant_id' => ['required', 'integer', 'exists:restaurants,id'],
         ];
     }
 }

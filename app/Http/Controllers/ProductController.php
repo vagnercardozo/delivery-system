@@ -17,26 +17,26 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request): JsonResponse
     {
-        $restaurant = Product::query()->create($request->validated());
+        $product = Product::query()->create($request->validated());
 
-        return response()->json($restaurant, 201);
+        return response()->json($product, 201);
     }
 
-    public function show(Product $restaurant): Product
+    public function show(Product $product): Product
     {
-        return $restaurant;
+        return $product;
     }
 
-    public function update(UpdateProductRequest $request, Product $restaurant): JsonResponse
+    public function update(UpdateProductRequest $request, Product $product): JsonResponse
     {
-        $restaurant->update($request->validated());
+        $product->update($request->validated());
 
-        return response()->json($restaurant);
+        return response()->json($product);
     }
 
-    public function destroy(Product $restaurant): JsonResponse
+    public function destroy(Product $product): JsonResponse
     {
-        $restaurant->delete();
+        $product->delete();
 
         return response()->json([], 204);
     }

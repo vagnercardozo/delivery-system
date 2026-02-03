@@ -15,7 +15,6 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'slug' => ['required', 'string', 'unique:restaurants,slug'],
             'opening_time' => ['required', 'date_format:H:i'],
             'closing_time' => ['required', 'date_format:H:i'],
         ];

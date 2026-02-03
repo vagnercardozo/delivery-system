@@ -20,6 +20,7 @@ class UpdateProductRequest extends FormRequest
             'is_available' => ['sometimes', 'boolean'],
             'image_url' => ['sometimes', 'string'],
             'category_id' => ['sometimes', 'integer', 'exists:categories,id'],
+            'restaurant_id' => ['sometimes', 'integer', 'exists:restaurants,id'],
         ];
     }
 }

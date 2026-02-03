@@ -15,7 +15,7 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
-            'slug' => ['required', 'string', 'unique:categories,slug'],
+            'restaurant_id' => ['required', 'integer', 'exists:restaurants,id'],
             'is_active' => ['required', 'boolean'],
             'position' => ['required', 'numeric'],
         ];

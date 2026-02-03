@@ -15,6 +15,7 @@ class UpdateCategoryRequest extends FormRequest
     {
         return [
             'name' => ['sometimes', 'string'],
+            'restaurant_id' => ['sometimes', 'integer', 'exists:restaurants,id'],
             'is_active' => ['sometimes', 'boolean'],
             'position' => ['sometimes', 'numeric'],
         ];

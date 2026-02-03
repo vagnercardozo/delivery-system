@@ -17,26 +17,26 @@ class CategoryController extends Controller
 
     public function store(StoreCategoryRequest $request): JsonResponse
     {
-        $restaurant = Category::query()->create($request->validated());
+        $category = Category::query()->create($request->validated());
 
-        return response()->json($restaurant, 201);
+        return response()->json($category, 201);
     }
 
-    public function show(Category $restaurant): Category
+    public function show(Category $category): Category
     {
-        return $restaurant;
+        return $category;
     }
 
-    public function update(UpdateCategoryRequest $request, Category $restaurant): JsonResponse
+    public function update(UpdateCategoryRequest $request, Category $category): JsonResponse
     {
-        $restaurant->update($request->validated());
+        $category->update($request->validated());
 
-        return response()->json($restaurant);
+        return response()->json($category);
     }
 
-    public function destroy(Category $restaurant): JsonResponse
+    public function destroy(Category $category): JsonResponse
     {
-        $restaurant->delete();
+        $category->delete();
 
         return response()->json([], 204);
     }
