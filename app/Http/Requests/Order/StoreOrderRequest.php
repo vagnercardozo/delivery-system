@@ -19,6 +19,9 @@ class StoreOrderRequest extends FormRequest
             'items.*.product_id' => ['required', 'exists:products,id'],
             'items.*.quantity' => ['required', 'integer', 'min:1'],
             'notes' => ['nullable', 'string'],
+            'customer.name' => ['required', 'string'],
+            'customer.phone' => ['required', 'string'],
+            'customer.email' => ['nullable', 'email'],
         ];
     }
 }

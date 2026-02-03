@@ -2,6 +2,7 @@
 
 namespace App\Actions\Order;
 
+use App\Models\Customer;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\Product;
@@ -14,10 +15,19 @@ class CreateOrder
         return DB::transaction(function () use ($data) {
             $total = 0;
 
+            /** @var Customer $customer */
+            $customer = Customer::query()->firstOrCreate(
+                ['phone' => $data['customer']['phone']],
+                [
+                    'name' => $data['customer']['name'],
+                    'email' => $data['customer']['email'] ?? null,
+                ]
+            );
+
             /** @var Order $order */
             $order = Order::query()->create([
                 'restaurant_id' => $data['restaurant_id'],
-                'customer_id' => 1,
+                'customer_id' => $customer->id,
                 'status' => 'pending',
                 'notes' => $data['notes'] ?? null,
             ]);
