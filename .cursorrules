@@ -1,0 +1,36 @@
+# Contexto do Projeto
+Este é um projeto Laravel 12+ usando MySQL e Laravel Sanctum para autenticação de API. Frontend com React 19, Inertia.js, TypeScript e Tailwind CSS (shadcn/ui).
+
+# Stack
+- PHP 8.4, Laravel Framework, Laravel Sanctum, Fortify
+- React 19, Inertia.js, TypeScript, Vite
+- Tailwind CSS 4, shadcn/ui (new-york), Radix UI
+- MySQL
+
+# Regras de Código — PHP/Laravel
+- Use sempre type hinting em Controllers, Actions e métodos públicos.
+- Rotas de API devem retornar JSON padronizado (response()->json(...)).
+- Ao sugerir correções de rotas, verifique routes/api.php e routes/web.php.
+- Evite lógica complexa nos Controllers; use Actions (app/Actions) ou Service Classes.
+- Validação: Form Requests em app/Http/Requests, agrupados por recurso (Order/, Category/, etc.).
+- Autorização: Policies com atributo UsePolicy no Model; middleware can:action,model nas rotas.
+- Models: fillable, casts, relações com type hint; Enums para status quando fizer sentido.
+- Formatação PHP: Laravel Pint (preset laravel); siga o pint.json do projeto.
+
+# Regras de Código — Frontend (React/TypeScript)
+- TypeScript strict; prefira tipagem explícita em props e retornos de função.
+- Componentes e páginas: PascalCase; arquivos em kebab-case (ex.: alert-error.tsx, app-shell.tsx).
+- Imports: use type imports quando for só tipo (@typescript-eslint/consistent-type-imports).
+- Ordem de imports: grupos (builtin, external, internal, parent, sibling, index), alfabética.
+- Estilos: Tailwind + utilitário cn() (clsx + tailwind-merge); CVA quando precisar de variantes.
+- Aliases: @/components, @/lib, @/hooks conforme tsconfig.json e components.json.
+- Formatação: Prettier (singleQuote, semi, printWidth 80); ESLint com config do projeto.
+
+# Estrutura do Projeto
+- Backend: app/Actions, app/Http/Controllers, app/Models, app/Policies, app/Http/Requests, app/Enums.
+- Frontend: resources/js/components, pages, layouts, hooks, lib, types.
+- Rotas: api.php (auth:sanctum para API), web.php (Inertia), settings.php.
+
+# Ferramentas
+- PHP: composer lint (Pint), composer test (inclui test:lint).
+- Frontend: npm run lint, npm run format, npm run types (tsc --noEmit).

@@ -2,11 +2,20 @@
 
 namespace App\Models;
 
+use App\Enums\OrderStatus;
+use App\Policies\OrderPolicy;
+use Illuminate\Database\Eloquent\Attributes\UsePolicy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property Restaurant $restaurant
+ * @property int $id
+ * @property OrderStatus $status
+ */
+#[UsePolicy(OrderPolicy::class)]
 class Order extends Model
 {
     use SoftDeletes;
@@ -25,6 +34,7 @@ class Order extends Model
     protected $casts = [
         'total_amount' => 'decimal:2',
         'delivery_fee' => 'decimal:2',
+        'status' => OrderStatus::class,
     ];
 
     public function restaurant(): BelongsTo

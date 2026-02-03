@@ -12,8 +12,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @property Restaurant $restaurant
+ * @property numeric $price
+ * @property int $id
+ * @property string $name
  */
-
 #[UsePolicy(ProductPolicy::class)]
 class Product extends Model
 {
