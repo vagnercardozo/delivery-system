@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Restaurant\StoreRestaurantRequest;
+use App\Actions\Order\CreateOrder;
+use App\Http\Requests\Order\StoreOrderRequest;
 use App\Http\Requests\Restaurant\UpdateRestaurantRequest;
 use App\Models\Order;
 use Illuminate\Http\JsonResponse;
@@ -16,9 +17,9 @@ class OrderController extends Controller
         return Order::query()->paginate();
     }
 
-    public function store(StoreRestaurantRequest $request): JsonResponse
+    public function store(StoreOrderRequest $request, CreateOrder $action): JsonResponse
     {
-        $order = Order::query()->create($request->validated());
+        $order = $action->handle($request->validated());
 
         return response()->json($order, 201);
     }
