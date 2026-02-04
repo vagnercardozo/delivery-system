@@ -15,6 +15,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $id
  * @property string $slug
  * @property int $user_id
+ * @property string $ifood_merchant_id
+ * @property string $ifood_token
+ * @property boolean $ifood_enabled
  */
 #[UsePolicy(RestaurantPolicy::class)]
 class Restaurant extends Model
@@ -27,9 +30,13 @@ class Restaurant extends Model
         'status',
         'opening_time',
         'closing_time',
+        'ifood_merchant_id',
+        'ifood_token',
+        'ifood_enabled',
     ];
 
     protected $casts = [
+        'ifood_enabled' => 'boolean',
         'opening_time' => 'datetime:H:i',
         'closing_time' => 'datetime:H:i',
     ];
