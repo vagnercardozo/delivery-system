@@ -4,6 +4,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\WebhookOrderController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +25,8 @@ Route::post('/login', function (Request $request) {
         'token' => $token,
     ]);
 });
+
+Route::post('/webhooks/orders/new', [WebhookOrderController::class, 'store']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('restaurants')->group(function () {
