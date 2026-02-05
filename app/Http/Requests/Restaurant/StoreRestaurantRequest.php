@@ -15,6 +15,9 @@ class StoreRestaurantRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string'],
+            'ifood_enabled' => ['sometimes', 'boolean'],
+            'ifood_merchant_id' => ['sometimes', 'string'],
+            'ifood_token' => ['sometimes', 'string'],
             'opening_time' => ['required', 'date_format:H:i'],
             'closing_time' => ['required', 'date_format:H:i'],
         ];
