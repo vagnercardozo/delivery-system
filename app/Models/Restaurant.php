@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property int $user_id
  * @property string $ifood_merchant_id
  * @property string $ifood_token
- * @property boolean $ifood_enabled
+ * @property bool $ifood_enabled
  */
 #[UsePolicy(RestaurantPolicy::class)]
 class Restaurant extends Model
