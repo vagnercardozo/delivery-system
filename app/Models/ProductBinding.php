@@ -25,4 +25,3 @@ class ProductBinding extends Model
         return $this->belongsTo(Product::class);
     }
 }
-

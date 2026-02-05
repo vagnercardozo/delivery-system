@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
@@ -17,4 +18,3 @@ class PendingOrderItem extends Model
         return $this->belongsTo(PendingOrder::class);
     }
 }
-
